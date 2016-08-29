@@ -1,0 +1,42 @@
+<div class="modal-content">
+    	<span class="close" ng-click="hideDialog()">x</span>
+    	<form name="frmreviews" id="frmreviews" ng-action="#" ng-submit="saveComments(frmscope,frmreviews)">
+    	<div class="left-panel">
+    		<ul>
+    			<li>
+    				<label>Name:*</label>
+    				<input class="input" type="text" name="usrname" id="usrname" placeholder="Please enter the name" required ng-model="frmscope.usrname" oninvalid="this.setCustomValidity('Please enter valid Name')" >
+    			</li>
+    			<li>
+    				<label>Subject:*</label>
+    				<input class="input" type="text" name="sbjname" id="sbjname" placeholder="Please enter the subject name"  required="true" ng-model="frmscope.sbjname" oninvalid="this.setCustomValidity('Please enter valid Subject')">
+    			</li>
+    			<li>
+    				<label class="cmnts">Comments:*</label>
+    				<textarea name="cmntsdesc" id="cmntsdesc" style="resize:none" placeholder="Please enter your comments" required="true" ng-model="frmscope.cmntsDesc" oninvalid="this.setCustomValidity('Please enter valid Comments')" ></textarea>
+    			</li>
+    			
+    		</ul>
+    	 </div>
+    	 <div class="right-panel" ng-controller="ratingCtrl">
+    	 	<div id="price-value-quality">
+			<h3>{{response.productSection.usedProduct}}</h2>
+			<ul>
+				<li><label>Price</label> <div star-rating rating="starRatingPrice" max-rating="5" click="clickPrice(param)" mouse-hover="mouseHover1(param)" mouse-leave="mouseLeave1(param)"></div>
+				<input type="hidden" ng-model="starRatingPrice" name="price" id="price">
+				</li>
+				<li><label>Value</label> <div star-rating rating="starRatingValue" max-rating="5" click="clickValue(param)"></div><input type="hidden" ng-model="starRatingValue" name="value" id="value" value="{{starRatingValue}}"></li>
+				<li><label>Quality</label> <div star-rating rating="starRatingQuality" max-rating="5" click="clickQuality(param)"></div><input type="hidden" ng-model="starRatingQuality" name="quality" id="quality" value="{{starRatingQuality}}"></li>
+			</ul>
+		</div>
+		<div id="helpful">
+			<h3>{{response.productSection.helpfulText}}</h2>
+			<input type="radio" ng-model="helpfuloption" class="helpfuloption" name="helpfuloption" value="true"> Yes
+			<input type="radio"  ng-model="helpfuloption" class="helpfuloption" name="helpfuloption" value="false"> No 
+		</div>
+     </div>
+     <p class="btn-container">
+     	<input type="submit" class="btnsubmit" name="Submit" value="Submit Review" >
+     </p>
+    </form>
+ </div>

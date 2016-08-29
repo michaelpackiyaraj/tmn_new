@@ -1,0 +1,73 @@
+<div id="main_container" ng-controller="rootCtrl">
+<div id="product-section" >
+	<h2>{{response.productSection.prodTitle}}</h2>
+	<div id="ratings-list" ng-controller="ratingCtrl">
+		<ul>
+			<li class="list-one">
+				<label>Average Ratings:</label>
+				<div class="overall-ratings"> 
+				    <div star-rating rating="starRatingoverAll" max-rating="5" read-only="true"></div>
+				</div>
+				<p>{{starRatingoverAll| number: 0}}<span>(Based on {{comments.length}} ratings)</span><span class="divider">|</span></p>
+			</li>
+			<li class="list-two"><a href="#published-reviews">Read {{comments.length}} reviews</a></li>
+			<li class="list-three">
+				<label>Sort</label>
+				<select name="sort-option" id="sort-option" ng-model="itemSelected" ng-change="onSortChange(itemSelected)" >
+					<option value="-dateval">most recent</option>
+					<option value="-helpfuloption">most helpful</option>
+					<option value="-[priceCount,valueCount,qualityCount]">highest first</option>
+					<option value="[priceCount,valueCount,qualityCount];">lowest first</option>
+				</select>
+			</li>
+		</ul>
+	</div>
+	<div id="ratings-count">
+		<ul>
+			<li><span class="count">{{fiveStar}}</span><span class="lblcount">5 stars</span></li>
+			<li><span class="count">{{fourStar}}</span><span class="lblcount">4 stars</span></li>
+			<li><span class="count">{{threeStar}}</span><span class="lblcount">3 stars</span></li>
+			<li><span class="count">{{twoStar}}</span><span class="lblcount">2 stars</span></li>
+			<li><span class="count">{{oneStar}}</span><span class="lblcount">1 stars</span></li>
+		</ul>
+	</div>
+	<div id="rating-section" ng-controller="ratingCtrl">
+		<div id="price-value-quality">
+			<h3>{{response.productSection.usedProduct}}</h2>
+			<ul>
+				<li><label>Price</label> <div star-rating rating="starRatingPrice" max-rating="5" click="clickPrice(param)""></div></li>
+				<li><label>Value</label> <div star-rating rating="starRatingValue" max-rating="5" click="clickValue(param)"></div></li>
+				<li><label>Quality</label> <div star-rating rating="starRatingQuality" max-rating="5" click="clickQuality(param)"></div></li>
+			</ul>
+			<button  type="button" ng-click="showDialog()">{{response.productSection.writeReviewbtn}}</button>
+		</div>
+		<div id="helpful">
+			<h3>{{response.productSection.helpfulText}}</h2>
+			<input type="radio" checked="true" class="helpfuloption" name="helpfuloption" value="true"> Yes<br>
+			<input type="radio" class="helpfuloption" name="helpfuloption" value="false"> No 
+		</div>
+	</div>
+	
+	<div id="myModal" class="modal" ng-show="dispFlag==true" ng-include="'/tmn_new/app/src/templates/overlay.tpl.html'"></div>
+	</div>
+	<div id="published-reviews">
+		<h2>{{response.productSection.mostAccepted}}</h2>
+		<div class="review-list" ng-repeat="cmnt in comments | orderBy:predicate:reverse track by $index" ng-controller="ratingCtrl">
+				<h3>{{cmnt.sbjname}}</h3>
+				<p>{{cmnt.usrname}} <span>(Reviewd on {{cmnt.dateval|date:'d/MM/yy'}})</span></p>
+				<div >
+					<ul>
+						<li><label>Price</label> <div star-rating rating="cmnt.priceCount" max-rating="5" read-only="true"></li>
+						<li><label>Value</label> <div star-rating rating="cmnt.valueCount" max-rating="5" read-only="true"></li>
+						<li><label>Quality</label> <div star-rating rating="cmnt.qualityCount" max-rating="5" read-only="true"></li>
+					</ul>
+				</div>
+				<div class="comments-desc">{{cmnt.cmntsDesc}}</div>
+				<div id="helpful">
+					<h3>{{response.productSection.wasHelpful}}</h2>
+					<input type="radio"  ng-checked="(cmnt.helpfuloption == 'true')" disabled class="helpfuloption" name="{{cmnt.usrname}}" value="yes"> Yes
+					<input type="radio" ng-checked="(cmnt.helpfuloption == 'false')" disabled class="helpfuloption" name="{{cmnt.usrname}}" value="no"> No 
+				</div>
+		</div>
+	</div>
+</div>

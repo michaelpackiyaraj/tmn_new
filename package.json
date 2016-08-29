@@ -1,0 +1,17 @@
+{
+  "name": "ratings-and-reviews",
+  "version": "1.0.0",
+  "description": "Ratings and Reviews",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "sass"
+  },
+  "author": "Michael Packiyaraj",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0"
+  }
+}

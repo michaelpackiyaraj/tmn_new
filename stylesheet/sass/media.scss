@@ -1,0 +1,259 @@
+@import 'variables';
+/* ipad css starts here... */ 
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  { 
+	#main_container{
+	    width: 99%;
+		#ratings-list{
+			ul{
+			 	li{
+			 		&.list-one{
+			 			width: 54%;
+			 			p{
+			 			    margin-left: 10px;
+			 			}
+			 		}
+			 		&.list-two{
+			 		    width: 17%;
+			 		}
+			 		&.list-three{
+    					width: 21%;
+			 		}
+			   } 
+		    } 
+	    }
+	    #rating-section{
+	    	#price-value-quality{width: 55%;}
+	    	#helpful{width: 36%;}
+	    } 
+    }
+    .modal-content{
+    	width: 84%;
+    	label{width: 75px;}
+    	textarea{ width:215px;}
+    	.btn-container{
+    		input{
+    		    margin-left: 150px;
+    			margin-top: 0px;
+    		}
+    	} 
+    	.left-panel{
+    	    width: 60%;
+    	    .input{
+    	        width: 215px;
+    	    }
+    	}
+    	.right-panel{
+    	    width: 39%;
+    	}
+    }
+ }
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) 
+and (orientation : landscape) { 
+	#main_container{
+		#rating-section{
+	    	#price-value-quality{width: 47%;}
+	    	#helpful{width: 26%;}
+	    } 
+	}
+	.modal-content{ width: 68%;}
+}
+/* ipad css ends here... */ 
+
+/* iPhone 5 */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px){
+	#main_container{
+		width:100%;
+		#product-section{
+		  #ratings-list{
+			li{
+				&.list-one{
+					width: 70%;
+					p{margin-left:0;}
+				}
+				&.list-two{
+					width:27%;
+					a{margin-left: -30px;}
+				}
+				&.list-three{
+				    width: 52%;
+				}
+			}
+		  }
+		  .modal-content{
+				width:80%;
+				height: 100%;
+				.left-panel{
+				    width: 100%;
+				    margin-top: -5px;
+				    ul{padding:0;}
+				    .input,textarea{
+				    	width: 235px;
+				    	margin-top: 0;
+				    }
+				    label{&.cmnts{top: 0;}}
+				}
+				.right-panel{
+					width:100%;
+					margin-top:-20px;
+				}
+				.btn-container{
+					input{
+   						margin-left: 55px;
+    					margin-top: 4px;
+					}
+				}
+			}
+		}
+		#ratings-count{
+			ul{
+			    padding: 0;
+    			margin-left: 20px;
+			}
+		}
+		#rating-section{
+			height: 320px;
+			#price-value-quality{
+				width: 100%;
+				height: 160px;
+				button{
+					 position: relative;
+   					 top: 115px;
+				}
+			}
+			#helpful{
+				width: 100%;
+				padding: 0 12%;
+			}
+		}
+		#published-reviews{
+			ul{
+				li{
+				    width: 100%;
+    				line-height: 23px;
+				}
+			}
+			#helpful{
+				text-align: left;
+				h3{
+				    margin-left: 0px;
+				}
+			}
+		}
+	}
+}
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : landscape){
+#main_container{
+	#product-section{
+		#ratings-list{
+			li{
+				&.list-one{
+					width: 80%;
+					p{margin-left: 35px;
+						.divider{display:none;}
+					}
+				}
+				&.list-two{
+					width: 20%;
+					a{margin-left: 0;}
+				}
+				&.list-three{
+					width: 75%;
+				}
+			}
+		}
+		.modal-content{
+		    height: 512px;
+		    .left-panel {
+			    .input,textarea{
+			    	margin-top:10px;
+			    }
+			    label{&.cmnts{top:-80px;}}
+		    }
+		    .btn-container{
+		    	input{margin-left: 120px;}
+		    }
+		}
+	}
+ } 
+}
+/* iPhone 5  ends here... */
+
+/* iPhone 6  starts here... */
+/* iPhone 6 ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : landscape){
+	#main_container{
+		width:100%;
+		#rating-section{
+			#price-value-quality{width:56%;}
+			#helpful{width:40%;margin-left: 20px;}
+		}
+		#product-section{
+			.modal-content{
+			    height: 605px;
+				.left-panel {width:100%;}
+				.right-panel{
+				    width: 100%;
+				    float: left;
+				    margin-left: 50px;
+				}
+			} 
+		}
+	}
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : portrait){
+#main_container{
+	#product-section {
+		#ratings-list{
+			li{
+				&.list-three{
+    				width: 44%;
+				}
+			}
+		} 
+	}
+ } 
+}
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation : portrait){
+	#main_container{
+		#product-section{
+			#ratings-list{
+				li{&.list-three{
+					width:39%;
+				}
+			 }
+			} 
+		} 
+	} 
+}
+/* iPhone 6  starts here... */
+/* Galaxy S5 starts here ----------- */
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : landscape){
+	#main_container{
+		#product-section{
+			.modal-content{
+				.input,textarea{width: 240px;}
+			} 
+		}
+	}
+
+}
+
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : portrait){
+#main_container{
+		#product-section{
+			#ratings-list{
+				li{&.list-three{
+					width:46%;
+				}
+			 }
+			}
+			.modal-content{
+				.btn-container{
+					input{margin-top:20px;}
+				}  
+			} 
+		} 
+	} 
+}
+/* Galaxy S5 ends here ----------- */
